@@ -2,12 +2,11 @@ package business.concretes;
 
 import business.abstracts.MenuService;
 import core.helpers.Slow;
-import entities.concretes.Bmw;
-import entities.concretes.Honda;
+import entities.concretes.Audi;
 
 import java.util.Scanner;
 
-public class BmwMenuService extends MenuService {
+public class AudiMenuManager extends MenuService {
 
     Scanner inp = new Scanner(System.in);
 
@@ -15,12 +14,12 @@ public class BmwMenuService extends MenuService {
 
     CustomersManager customersManager = new CustomersManager();
 
-    Bmw bmw = new Bmw();
+    Audi audi = new Audi();
 
-    public void bmwMenu(){
-        bmw.fillBmwList();
+    public void audiMenu(){
+        audi.fillAudiList();
         String select;
-        bmw.showBmwCars();
+        audi.showAudiCars();
         System.out.println("========================");
         System.out.println("Rezervasyon işlemini bitirmek için 'Q', devam etmek için herhangi bir tuşa basınız");
         select = inp.nextLine();
@@ -35,6 +34,8 @@ public class BmwMenuService extends MenuService {
     }
 
 
+
+
     @Override
     public void search() {
         int flag = 0;
@@ -42,14 +43,14 @@ public class BmwMenuService extends MenuService {
 
         do {
             id = inp.nextLine();
-            for (Bmw w: bmw.bmwList){
+            for (Audi w:audi.audiList){
 
                 if (w.getId().equals(id)){
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s %-15s\n","Marka","Model","ID","Model Yılı","Otomatik Vites","Yakıt Tipi","Günlük Fiyat");
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s %-15s\n","-----","-----","--","----------","--------------","----------","------------");
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s $%-14s\n","Honda",w.getModel(),w.getId(),w.getModelYear(),w.isGear(),w.getFuelType(),w.getDailyPrice());
                     reservationManager.reservertCars.add(w);
-                    bmw.bmwList.remove(w);
+                    audi.audiList.remove(w);
                     flag++;
                     break;
                 }
@@ -66,4 +67,6 @@ public class BmwMenuService extends MenuService {
         }while (true);
 
     }
+
+
 }

@@ -1,8 +1,8 @@
 package business.abstracts;
 
-import business.concretes.AudiMenuService;
-import business.concretes.BmwMenuService;
-import business.concretes.HondaMenuService;
+import business.concretes.AudiMenuManager;
+import business.concretes.BmwMenuManager;
+import business.concretes.HondaMenuManager;
 import core.helpers.Start;
 
 
@@ -14,9 +14,9 @@ public abstract class MenuService {
 
 
     public void getSelectionMenu(){
-        HondaMenuService hondaMenuService = new HondaMenuService();
-        AudiMenuService audiMenuService = new AudiMenuService();
-        BmwMenuService bmwMenuService = new BmwMenuService();
+        HondaMenuManager hondaMenuManager = new HondaMenuManager();
+        AudiMenuManager audiMenuManager = new AudiMenuManager();
+        BmwMenuManager bmwMenuManager = new BmwMenuManager();
         int select;
         Scanner inp = new Scanner(System.in);
         System.out.println("Lütfen kiralamak istediğiniz aracın markasını giriniz");
@@ -28,12 +28,12 @@ public abstract class MenuService {
 
         switch (select){
             case 1:
-                hondaMenuService.hondaMenu();
+                hondaMenuManager.hondaMenu();
                 break;
             case 2:
-                audiMenuService.audiMenu();
+                audiMenuManager.audiMenu();
             case 3:
-                bmwMenuService.bmwMenu();
+                bmwMenuManager.bmwMenu();
             case 0:
                 Start.start();
         }
