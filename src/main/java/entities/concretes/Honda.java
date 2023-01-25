@@ -75,4 +75,3 @@ public class Honda extends Cars {
 
 }
 
-//this.model,super.getId(),super.getModelYear(),super.getColour(),super.getKm(),super.getSeat(),super.getDoor(),super.getGear(),super.getAc()

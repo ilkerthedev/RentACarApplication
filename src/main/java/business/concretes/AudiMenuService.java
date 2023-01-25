@@ -2,23 +2,25 @@ package business.concretes;
 
 import business.abstracts.MenuService;
 import core.helpers.Slow;
+import entities.concretes.Audi;
 import entities.concretes.Honda;
 
 import java.util.Scanner;
 
-public class HondaMenuService extends MenuService {
+public class AudiMenuService extends MenuService {
 
     Scanner inp = new Scanner(System.in);
 
     ReservationManager reservationManager = new ReservationManager();
 
     CustomersManager customersManager = new CustomersManager();
-    Honda honda = new Honda();
 
-    public void hondaMenu(){
-        honda.fillHondaList();
+    Audi audi = new Audi();
+
+    public void audiMenu(){
+        audi.fillAudiList();
         String select;
-        honda.showHondaCars();
+        audi.showAudiCars();
         System.out.println("========================");
         System.out.println("Rezervasyon işlemini bitirmek için 'Q', devam etmek için herhangi bir tuşa basınız");
         select = inp.nextLine();
@@ -33,6 +35,8 @@ public class HondaMenuService extends MenuService {
     }
 
 
+
+
     @Override
     public void search() {
         int flag = 0;
@@ -40,14 +44,14 @@ public class HondaMenuService extends MenuService {
 
         do {
             id = inp.nextLine();
-            for (Honda w:honda.hondaList){
+            for (Audi w:audi.audiList){
 
                 if (w.getId().equals(id)){
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s %-15s\n","Marka","Model","ID","Model Yılı","Otomatik Vites","Yakıt Tipi","Günlük Fiyat");
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s %-15s\n","-----","-----","--","----------","--------------","----------","------------");
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s $%-14s\n","Honda",w.getModel(),w.getId(),w.getModelYear(),w.isGear(),w.getFuelType(),w.getDailyPrice());
                     reservationManager.reservertCars.add(w);
-                    honda.hondaList.remove(w);
+                    audi.audiList.remove(w);
                     flag++;
                     break;
                 }
