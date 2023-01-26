@@ -2,23 +2,23 @@ package core.validations;
 
 import java.util.Scanner;
 
-public class IdValidator {
+public class TcNoValidator {
 
-    public String isValid() {
+    public String getValidTcNumber() {
 
         Scanner scanner = new Scanner(System.in);
-        String id = "";
+        String tcNo = "";
 
         do {
-            id = scanner.next();
-            String x = id.replaceAll("[\\d]", "");
+            tcNo = scanner.next();
+            String x = tcNo.replaceAll("[\\d]", "");
 
             if (!x.isEmpty()) {
                 System.out.println("Sayi disinda karakter girmeyiniz!");
                 System.out.println("Tekrar deneyiniz");
             }
 
-            else if (id.length() != 11) {
+            else if (tcNo.length() != 11) {
                 System.out.println("TC kimlik numarasi 11 karakterden olusmalidir");
                 System.out.println("Tekrar deneyiniz");
             }
@@ -29,7 +29,7 @@ public class IdValidator {
 
         } while (true);
 
-        return id;
+        return tcNo;
     }
 
 }

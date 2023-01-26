@@ -1,40 +1,17 @@
-package business.concretes;
+package core.helpers;
 
-import business.abstracts.MenuService;
-import core.helpers.Slow;
 import entities.concretes.Honda;
 
 import java.util.Scanner;
 
-public class HondaMenuManager extends MenuService {
+public class GetCar {
 
     Scanner inp = new Scanner(System.in);
 
-    ReservationManager reservationManager = new ReservationManager();
 
-    CustomersManager customersManager = new CustomersManager();
-    Honda honda = new Honda();
+    public void getHonda (){
+        Honda honda = new Honda();
 
-    public void hondaMenu(){
-        honda.fillHondaList();
-        String select;
-        //honda.showHondaCars();
-        System.out.println("========================");
-        System.out.println("Rezervasyon işlemini bitirmek için 'Q', devam etmek için herhangi bir tuşa basınız");
-        select = inp.nextLine();
-        if (select.equalsIgnoreCase("Q")){
-            getSelectionMenu();
-        }
-        System.out.println("Lütfen kiralamak istediğiniz arabanın kodunu giriniz");
-        search();
-        String s ="Müşreti kayıt menüsüne yönlendiriliyorsunuz...\n";
-        Slow.slowPrint(s,30);
-        customersManager.register();
-    }
-
-
-    @Override
-    public void search() {
         int flag = 0;
         String id;
 
@@ -46,7 +23,7 @@ public class HondaMenuManager extends MenuService {
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s %-15s\n","Marka","Model","ID","Model Yılı","Otomatik Vites","Yakıt Tipi","Günlük Fiyat");
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s %-15s\n","-----","-----","--","----------","--------------","----------","------------");
                     System.out.printf("%-7s  %-10s  %-10s  %-10s  %-14s  %-10s $%-14s\n","Honda",w.getModel(),w.getId(),w.getModelYear(),w.isGear(),w.getFuelType(),w.getDailyPrice());
-                    reservationManager.reservertCars.add(w);
+                    //reservationManager.reservertCars.add(w);
                     honda.hondaList.remove(w);
                     flag++;
                     break;
@@ -62,8 +39,14 @@ public class HondaMenuManager extends MenuService {
             }
 
         }while (true);
+    }
+
+    public void getBmw(){
 
     }
 
+    public void getAudi(){
+
+    }
 
 }

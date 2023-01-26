@@ -3,7 +3,7 @@ package business.concretes;
 import core.helpers.IdMaker;
 import core.helpers.Slow;
 import core.validations.AgeValidator;
-import core.validations.IdValidator;
+import core.validations.TcNoValidator;
 import core.validations.NameValidator;
 import entities.concretes.Customers;
 
@@ -19,7 +19,7 @@ public class CustomersManager implements IdMaker {
 
     //Validations
     AgeValidator ageValidator = new AgeValidator();
-    IdValidator idValidator = new IdValidator();
+    TcNoValidator tcNoValidator = new TcNoValidator();
     NameValidator nameValidator = new NameValidator();
 
     Scanner inp = new Scanner(System.in);
@@ -36,7 +36,7 @@ public class CustomersManager implements IdMaker {
         System.out.println("Lütfen yaşınızı giriniz: ");
         customers.setAge(ageValidator.isValidAge());
         System.out.println("Lütfen kimlik numaranızı giriniz: ");
-        customers.setTcNo(idValidator.isValid());
+        customers.setTcNo(tcNoValidator.isValid());
 
         customers.setId(idMaker(customers.getTcNo()));
         addCustomer();
