@@ -27,27 +27,27 @@ public class CustomersManager implements IdMaker {
     public List<Customers> registeredCustomerList = new ArrayList<>();
 
     public void register(){
-        System.out.println("Müşteri kayıt bölümüne hoşgeldiniz !");
-        System.out.println("====================================");
-        System.out.println("Lütfen adınızı giriniz: ");
-        customers.setFirstName(nameValidator.isValidFirstName());
-        System.out.println("Lütfen soyadınızı giriniz: ");
-        customers.setLastName(nameValidator.isValidLastName());
-        System.out.println("Lütfen yaşınızı giriniz: ");
-        customers.setAge(ageValidator.isValidAge());
-        System.out.println("Lütfen kimlik numaranızı giriniz: ");
-        customers.setTcNo(tcNoValidator.isValid());
-
-        customers.setId(idMaker(customers.getTcNo()));
-        addCustomer();
-        counter++;
-        System.out.println("Başarıyla eklenmiştir...");
-        String s ="Rezervasyon onay bölümüne yönlendiriliyorsunuz...\n";
-        Slow.slowPrint(s,30);
+//        System.out.println("Müşteri kayıt bölümüne hoşgeldiniz !");
+//        System.out.println("====================================");
+//        System.out.println("Lütfen adınızı giriniz: ");
+//        customers.setFirstName(nameValidator.isValidFirstName());
+//        System.out.println("Lütfen soyadınızı giriniz: ");
+//        customers.setLastName(nameValidator.isValidLastName());
+//        System.out.println("Lütfen yaşınızı giriniz: ");
+//        customers.setAge(ageValidator.isValidAge());
+//        System.out.println("Lütfen kimlik numaranızı giriniz: ");
+//        customers.setTcNo(tcNoValidator.isValid());
+//
+//        customers.setId(idMaker(customers.getTcNo()));
+//        addCustomer();
+//        counter++;
+//        System.out.println("Başarıyla eklenmiştir...");
+//        String s ="Rezervasyon onay bölümüne yönlendiriliyorsunuz...\n";
+//        Slow.slowPrint(s,30);
     }
 
     public void addCustomer(){
-        Customers customers1 = new Customers(customers.getTcNo(),customers.getAge(),customers.getId(),customers.getFirstName(),customers.getLastName());
+//        Customers customers1 = new Customers(customers.getTcNo(),customers.getAge(),customers.getId(),customers.getFirstName(),customers.getLastName());
     }
 
     @Override
