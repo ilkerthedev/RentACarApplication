@@ -1,47 +1,14 @@
 package business.abstracts;
 
-import business.concretes.AudiMenuManager;
-import business.concretes.BmwMenuManager;
-import business.concretes.HondaMenuManager;
 import core.helpers.Start;
-
+import entities.abstracts.Cars;
 
 import java.util.Scanner;
 
 public abstract class MenuService {
 
+    public abstract void getSelectionMenu() ;
+
     public abstract void search();
-
-
-    public void getSelectionMenu(){
-        HondaMenuManager hondaMenuManager = new HondaMenuManager();
-        AudiMenuManager audiMenuManager = new AudiMenuManager();
-        BmwMenuManager bmwMenuManager = new BmwMenuManager();
-        int select;
-        Scanner inp = new Scanner(System.in);
-        System.out.println("Lütfen kiralamak istediğiniz aracın markasını giriniz");
-        System.out.println("1-Honda");
-        System.out.println("2-Audi");
-        System.out.println("3-BMW");
-        System.out.println("0-Ana menü");
-        select = inp.nextInt();
-
-        switch (select){
-            case 1:
-                hondaMenuManager.hondaMenu();
-                break;
-            case 2:
-                audiMenuManager.audiMenu();
-            case 3:
-                bmwMenuManager.bmwMenu();
-            case 0:
-                Start.start();
-        }
-
-
-
-
-
-    }
 
 }

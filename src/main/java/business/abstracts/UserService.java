@@ -1,4 +1,10 @@
 package business.abstracts;
 
-public class UserService {
+import core.helpers.IdMaker;
+
+public abstract class UserService implements IdMaker {
+
+    public abstract void register();
+
+    public abstract void add();
 }

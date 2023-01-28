@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 public class DateValidator {
 
-    public static LocalDate getValidDate(String param) {//param "Surucu lisans"    yada   "dogum" String  verilecek
+    public LocalDate getValidDate() {//param "Surucu lisans"    yada   "dogum" String  verilecek
 
         Scanner scanner = new Scanner(System.in);
         LocalDate date = null; //LocalDate.now();
         int gun, ay, yil;
-        System.out.println("Lutfen " + param + " tarihinizi gun / ay / yil olacak sekilde giriniz");
+        System.out.println("Lutfen tarihinizi gun / ay / yil (31/01/2021) olacak sekilde giriniz");
         boolean isDigit;
         do {
             isDigit = false;
