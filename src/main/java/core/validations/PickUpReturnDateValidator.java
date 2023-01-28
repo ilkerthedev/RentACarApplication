@@ -16,9 +16,9 @@ public class PickUpReturnDateValidator {
 
     Scanner scanner = new Scanner(System.in);
 
-    boolean isDigit;
+     static boolean isDigit;
 
-    public LocalDate getPickUpValidDate() {//reservasyon isleminde, müsterinin araci teslim alma tarihi, rezervasyon giris tarihinden eski olamaz!
+    public static LocalDate getPickUpValidDate() {//reservasyon isleminde, müsterinin araci teslim alma tarihi, rezervasyon giris tarihinden eski olamaz!
 
         LocalDate date = null; //LocalDate.now();
         Scanner scanner = new Scanner(System.in);
@@ -58,9 +58,8 @@ public class PickUpReturnDateValidator {
         return date;
     }
 
-    public LocalDate getReturnValidDate() {
+    public static LocalDate getReturnValidDate(LocalDate pickUpDate) {
 
-        LocalDate pickUpDate = reservation.getPickUpDate();
 
         LocalDate date = null; //LocalDate.now();
         Scanner scanner = new Scanner(System.in);
@@ -90,7 +89,7 @@ public class PickUpReturnDateValidator {
                 isDigit = true;
             }
 
-            if (date.isBefore(pickUpDate)) {
+            if (date != null && date.isBefore(pickUpDate)) {
                 System.out.println("Teslim tarihi rezervasyon tarihi bugünden önce olamaz!");
                 isDigit = true;
             }
@@ -100,4 +99,11 @@ public class PickUpReturnDateValidator {
         return date;
 
     }
+
+    public static void main(String[] args) {
+
+        getReturnValidDate(getPickUpValidDate());
+
+    }
+
 }

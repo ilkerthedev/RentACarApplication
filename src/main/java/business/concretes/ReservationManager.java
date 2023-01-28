@@ -43,7 +43,7 @@ public class ReservationManager extends ReservationService {
         reservation.setPickUpLocation(scanner.nextLine());
 
         System.out.println("Lütfen araci teslim edeceginiz tarihi (Gun/Ay/Yil formatinda) giriniz: ");
-        reservation.setPickUpDate(pickUpDateValidator.getReturnValidDate());
+       // reservation.setPickUpDate(pickUpDateValidator.getReturnValidDate());
 
         System.out.println("Lütfen araci teslim alacaginiz saati (Saat:Dakika formatinda) giriniz: ");
         reservation.setPickUpTime(LocalTime.parse(scanner.nextLine(),DateTimeFormatter.ofPattern("HH:mm")));
