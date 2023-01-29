@@ -1,17 +1,21 @@
 package core.helpers;
 
-import business.concretes.HondaMenuManager;
+import business.concretes.CustomerManager;
+import business.concretes.MenuManager;
+import business.concretes.ReservationManager;
+
 
 import java.util.Scanner;
 
 public class Start {
 
-
     public static void start(){
+
         Scanner inp = new Scanner(System.in);
 
-        HondaMenuManager hondaMenuManager = new HondaMenuManager();
-
+        MenuManager menuManager = new MenuManager();
+        CustomerManager customerManager = new CustomerManager();
+        ReservationManager reservationManager = new ReservationManager();
 
         int select;
 
@@ -21,22 +25,27 @@ public class Start {
             System.out.println("2-Müşreti kayıt");
             System.out.println("3-Rezervasyonu onayla");
             System.out.println("4-Arac Rezervasyon İptal");
+            System.out.println("5-Rezervasyon Listesi");
+            System.out.println("6-Arac Listesi");
             System.out.println("0-Çıkış");
 
             select = inp.nextInt();
 
             switch (select){
                 case 1:
-                    hondaMenuManager.getSelectionMenu();
+                    menuManager.getSelectionMenu();
                     break;
                 case 2:
-                    //müşreti kayıt
+                    customerManager.register();
                     break;
                 case 3:
-                    //onay
+                    reservationManager.reservationConfirmation();
                     break;
                 case 4:
-                    //rezervasyon
+                    //rezervasyon iptal
+                    break;
+                case 5:
+                    //rezervasyon listesi
                     break;
                 case 0:
                     break;
@@ -50,7 +59,6 @@ public class Start {
         }while(select != 0);
 
         System.out.println("İyi günler, tekrar bekleriz...");
-
     }
 
 }
