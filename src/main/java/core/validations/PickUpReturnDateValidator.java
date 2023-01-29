@@ -7,20 +7,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PickUpReturnDateValidator {
-
-//    public static void main(String[] args) {
-//        System.out.println(getValidDate());
-//    }
-
-    Reservation reservation = new Reservation();
-
-    Scanner scanner = new Scanner(System.in);
-
-     static boolean isDigit;
-
-    public static LocalDate getPickUpValidDate() {//reservasyon isleminde, müsterinin araci teslim alma tarihi, rezervasyon giris tarihinden eski olamaz!
+    LocalDate temporalDate = null;
+    boolean isDigit;
+    public  LocalDate getPickUpValidDate() {//reservasyon isleminde, müsterinin araci teslim alma tarihi, rezervasyon giris tarihinden eski olamaz!
 
         LocalDate date = null; //LocalDate.now();
+
         Scanner scanner = new Scanner(System.in);
         int gun, ay, yil;
         System.out.println("Lutfen tarihinizi gun / ay / yil (31/01/2021) olacak sekilde giriniz");
@@ -58,10 +50,12 @@ public class PickUpReturnDateValidator {
         return date;
     }
 
-    public static LocalDate getReturnValidDate(LocalDate pickUpDate) {
+    public LocalDate getReturnValidDate(LocalDate getPickUpDate) {
 
+        Reservation reservation = new Reservation();
+        LocalDate pickUpDate = reservation.getPickUpDate();
 
-        LocalDate date = null; //LocalDate.now();
+        LocalDate date = null;
         Scanner scanner = new Scanner(System.in);
         int gun, ay, yil;
         System.out.println("Lutfen tarihinizi gun / ay / yil (31/01/2021) olacak sekilde giriniz");
@@ -88,22 +82,17 @@ public class PickUpReturnDateValidator {
                 System.out.println(" Lutfen gecerli bir tarih giriniz.");
                 isDigit = true;
             }
-
-            if (date != null && date.isBefore(pickUpDate)) {
-                System.out.println("Teslim tarihi rezervasyon tarihi bugünden önce olamaz!");
-                isDigit = true;
-            }
+            temporalDate=(LocalDate) date;
 
         } while (isDigit);
 
-        return date;
+
+        if (temporalDate.isBefore(getPickUpDate)) {
+            System.out.println("Teslim tarihi rezervasyon tarihi bugünden önce olamaz!");
+            isDigit = true;
+        }
+
+        return temporalDate;
 
     }
-
-    public static void main(String[] args) {
-
-        getReturnValidDate(getPickUpValidDate());
-
-    }
-
 }
