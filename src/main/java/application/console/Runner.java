@@ -1,6 +1,6 @@
-package applicaton;
+package application.console;
 
-import applicaton.concretes.Start;
+import application.console.concretes.Start;
 
 public class Runner {
 

@@ -4,30 +4,28 @@ import application.console.concretes.Start;
 import business.abstracts.CarService;
 import core.helpers.GetCar;
 import core.helpers.Slow;
+import entities.concretes.Bmw;
 import entities.concretes.Honda;
-
 
 import java.util.Scanner;
 
-public class HondaMenuManager extends MenuManager implements CarService {
+public class BmwMenuManager extends MenuManager implements CarService {
 
     Scanner inp = new Scanner(System.in);
-    Honda honda = new Honda(); //DI (Dependeny Injection) --> Don't repeat yourself (DRY)  - SOLID
+    Bmw bmw = new Bmw(); //DI (Dependeny Injection) --> Don't repeat yourself (DRY)  - SOLID
     CustomerManager customerManager = new CustomerManager();
     GetCar getCar = new GetCar();
 
-    public void hondaMenu() {
+    public void bmwMenu() {
         String select;
 
-        honda.fillHondaList();
-        honda.showAvailableCars(true);
+        bmw.fillBmwList();
+        bmw.showAvailableCars(true);
 
 //        System.out.println("=================== InactiveCars ==============");
-//        honda.showInactiveCars(false);
+//        bmw.showInactiveCars(false);
 
         System.out.println("================================== ARAC SECIMI =============================================\n");
-
-
         System.out.println("Rezervasyon işlemini bitirmek için 'Q', devam etmek için herhangi bir tuşa basınız");
         select = inp.nextLine();
 
@@ -37,7 +35,7 @@ public class HondaMenuManager extends MenuManager implements CarService {
 
         System.out.print("Lütfen kiralamak istediğiniz arabanın kodunu giriniz:");
         System.out.println();
-        getCar.getHonda();
+        getCar.getBmw();
 
         System.out.println();
         String s = "==> Müşteri kayıt menüsüne yönlendiriliyorsunuz...\n\n";
@@ -52,7 +50,7 @@ public class HondaMenuManager extends MenuManager implements CarService {
 
         do {
             id = inp.nextLine();
-            for (Honda w : honda.hondaList) {
+            for (Bmw w : bmw.bmwList) {
 
                 if (w.getId().equals(id)) {
                     w.showAvailableCars(true);
@@ -71,7 +69,7 @@ public class HondaMenuManager extends MenuManager implements CarService {
     }
 
 
-    public void hondaListMenu() {
+    public void BmwList() {
 
         int select;
         Scanner inp = new Scanner(System.in);
@@ -102,17 +100,17 @@ public class HondaMenuManager extends MenuManager implements CarService {
 
     @Override
     public void availableCarsList() {
-        honda.showAvailableCars(true);
+        bmw.showAvailableCars(true);
     }
 
     @Override
     public void reservedCarsList() {
-        honda.showInactiveCars(false);
+        bmw.showInactiveCars(false);
     }
 
     @Override
     public void allCarsList() {
-        honda.fillHondaList();
+        bmw.fillBmwList();
     }
 
     @Override
