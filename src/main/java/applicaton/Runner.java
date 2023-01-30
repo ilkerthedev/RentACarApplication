@@ -1,6 +1,6 @@
 package applicaton;
 
-import core.helpers.Start;
+import applicaton.concretes.Start;
 
 public class Runner {
 

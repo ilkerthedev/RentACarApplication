@@ -12,6 +12,4 @@ public abstract class ReservationService {
 
     public abstract Users user();
 
-/*    public void enteringRreservationInformation() {
-    }*/
 }
