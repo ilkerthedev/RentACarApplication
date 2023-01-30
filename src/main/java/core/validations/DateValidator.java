@@ -33,6 +33,8 @@ public class DateValidator {
             } catch (Exception e) {
                 System.out.println(" Lutfen gecerli bir tarih giriniz.");
                 isDigit = true;
+                scanner.nextLine();
+                continue;
             }
         } while (isDigit);
 

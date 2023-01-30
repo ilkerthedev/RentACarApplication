@@ -1,5 +1,6 @@
 package core.helpers;
 
+import application.console.concretes.Start;
 import business.concretes.ReservationCostCalculateManager;
 import entities.abstracts.Cars;
 import entities.concretes.Customers;
@@ -35,11 +36,12 @@ public class GetInvoice {
         System.out.println("================= ARAC BILGILERI ==================");
         System.out.printf("%-13s  %-10s  %-13s  %-10s  %-14s  %-12s %-15s\n","Arac Kodu","Marka","Model","Model Yılı","Otomatik Vites","Yakıt Tipi","Günlük Fiyat");
         System.out.printf("%-13s  %-10s  %-13s  %-10s  %-14s  %-12s %-15s\n","-----------","--------","---------","----------","--------------","----------","------------");
-        System.out.printf("%-13s  %-10s  %-16s  %-10s  %-12s  %-12s $%-14s\n",car.getId(),"Honda",car.getModel(),car.getModelYear(),car.isGear(),car.getFuelType(),car.getDailyPrice());
+        System.out.printf("%-13s  %-10s  %-16s  %-10s  %-12s  %-12s $%-14s\n",car.getId(),car.getBrandName(),car.getModel(),car.getModelYear(),car.isGear(),car.getFuelType(),car.getDailyPrice());
 
         index++;
         System.out.println();
         System.out.println("Bizi tercih ettiginiz icin tesekkür ederiz.");
+        Start.start();
     }
 
     private double priceCalculate() {

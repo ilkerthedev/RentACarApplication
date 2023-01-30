@@ -62,6 +62,7 @@ public class Start {
         }while(select != 0);
 
         System.out.println("İyi günler, tekrar bekleriz...");
+        System.exit(0);
     }
 
 }
