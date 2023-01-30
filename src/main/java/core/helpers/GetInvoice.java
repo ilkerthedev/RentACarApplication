@@ -41,6 +41,9 @@ public class GetInvoice {
         index++;
         System.out.println();
         System.out.println("Bizi tercih ettiginiz icin tesekkür ederiz.");
+        System.out.println("===================================================");
+        String s = "Ana menüye yönlendiriliyorsunuz...";
+        Slow.slowPrint(s,40);
         Start.start();
     }
 
